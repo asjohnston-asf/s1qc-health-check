@@ -52,6 +52,13 @@ Resources:
       Runtime: python3.12
       Timeout: 600
 
+  EventInvokeConfig:
+    Type: AWS::Lambda::EventInvokeConfig
+    Properties:
+      FunctionName: !Ref Lambda
+      Qualifier: $LATEST
+      MaximumRetryAttempts: 0
+
   Schedule:
     Type: AWS::Events::Rule
     Properties:
